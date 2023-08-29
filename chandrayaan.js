@@ -20,8 +20,8 @@ export class Chandrayaan {
     S: "y", // south
   };
 
-  printall() {
-    console.log(this);
+  getCoordinates() {
+    return [this.x, this.y, this.z];
   }
   processCommands(commands) {
     for (const command of commands) {
@@ -41,11 +41,12 @@ export class Chandrayaan {
     switch (command) {
       case "f":
         if (
-          this.direction === "U" ||
+          this.direction === "UP" ||
           this.direction === "N" ||
           this.direction === "E"
         ) {
           // now if we in North , east or up direction than to move forward we have to +1;
+          // this.#direction_to_axis[this.direction] will used to convert N->y ---> this.y++
           this[this.#direction_to_axis[this.direction]]++;
         } else {
           // but if we in south , west or down direction than to move forward we have to -1;
@@ -54,7 +55,7 @@ export class Chandrayaan {
         break;
       case "b":
         if (
-          this.direction === "U" ||
+          this.direction === "UP" ||
           this.direction === "N" ||
           this.direction === "E"
         ) {

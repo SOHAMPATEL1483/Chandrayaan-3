@@ -11,16 +11,77 @@ describe("Tests for move operations", () => {
     spaceship = new Chandrayaan();
   });
 
-  it("should move forward correctly", () => {
-    spaceship.processCommands(["f"]);
-    expect(spaceship.x).toBe(0);
-    expect(spaceship.y).toBe(1);
-    expect(spaceship.z).toBe(0);
+  describe("should move forward correctly", () => {
+    it("for initial direction North(N)", () => {
+      spaceship.processCommands(["f"]);
+      expect(spaceship.getCoordinates()).toEqual([0, 1, 0]);
+    });
+
+    it("for initial direction South(S)", () => {
+      spaceship.direction = "S";
+      spaceship.processCommands(["f"]);
+      expect(spaceship.getCoordinates()).toEqual([0, -1, 0]);
+    });
+
+    it("for initial direction East(E)", () => {
+      spaceship.direction = "E";
+      spaceship.processCommands(["f"]);
+      expect(spaceship.getCoordinates()).toEqual([1, 0, 0]);
+    });
+
+    it("for initial direction West(W)", () => {
+      spaceship.direction = "W";
+      spaceship.processCommands(["f"]);
+      expect(spaceship.getCoordinates()).toEqual([-1, 0, 0]);
+    });
+
+    it("for initial direction Up(UP)", () => {
+      spaceship.direction = "UP";
+      spaceship.processCommands(["f"]);
+      expect(spaceship.getCoordinates()).toEqual([0, 0, 1]);
+    });
+
+    it("for initial direction Down(DOWN)", () => {
+      spaceship.direction = "DOWN";
+      spaceship.processCommands(["f"]);
+      expect(spaceship.getCoordinates()).toEqual([0, 0, -1]);
+    });
   });
-  it("should move backword correctly", () => {
-    spaceship.processCommands(["b"]);
-    expect(spaceship.x).toBe(0);
-    expect(spaceship.y).toBe(-1);
-    expect(spaceship.z).toBe(0);
+
+  describe("should move backword correctly", () => {
+    it("for initial direction North(N)", () => {
+      spaceship.processCommands(["b"]);
+      expect(spaceship.getCoordinates()).toEqual([0, -1, 0]);
+    });
+
+    it("for initial direction South(S)", () => {
+      spaceship.direction = "S";
+      spaceship.processCommands(["b"]);
+      expect(spaceship.getCoordinates()).toEqual([0, 1, 0]);
+    });
+
+    it("for initial direction East(E)", () => {
+      spaceship.direction = "E";
+      spaceship.processCommands(["b"]);
+      expect(spaceship.getCoordinates()).toEqual([-1, 0, 0]);
+    });
+
+    it("for initial direction West(W)", () => {
+      spaceship.direction = "W";
+      spaceship.processCommands(["b"]);
+      expect(spaceship.getCoordinates()).toEqual([1, 0, 0]);
+    });
+
+    it("for initial direction Up(UP)", () => {
+      spaceship.direction = "UP";
+      spaceship.processCommands(["b"]);
+      expect(spaceship.getCoordinates()).toEqual([0, 0, -1]);
+    });
+
+    it("for initial direction Down(DOWN)", () => {
+      spaceship.direction = "DOWN";
+      spaceship.processCommands(["b"]);
+      expect(spaceship.getCoordinates()).toEqual([0, 0, 1]);
+    });
   });
 });
