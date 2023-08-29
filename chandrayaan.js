@@ -23,6 +23,7 @@ export class Chandrayaan {
   getCoordinates() {
     return [this.x, this.y, this.z];
   }
+
   processCommands(commands) {
     for (const command of commands) {
       if (command === "f" || command === "b") {
@@ -72,38 +73,27 @@ export class Chandrayaan {
     }
   }
 
-  turn(command) {
-    switch (command) {
-      case "l":
-        if (this.direction == "N") this.direction = "W";
-        else if (this.direction == "W") this.direction = "S";
-        else if (this.direction == "S") this.direction = "E";
-        else if (this.direction == "E") this.direction = "N";
-        else if (this.direction == "U") this.direction = "N";
-        else if (this.direction == "D") this.direction = "S";
-        break;
-      case "r":
-        if (this.direction == "N") this.direction = "E";
-        else if (this.direction == "E") this.direction = "S";
-        else if (this.direction == "S") this.direction = "W";
-        else if (this.direction == "W") this.direction = "N";
-        break;
-      case "u":
-        if (
-          this.direction == "N" ||
-          this.direction == "S" ||
-          this.direction == "E" ||
-          this.direction == "W"
-        )
-          this.direction = "UP";
-        else if (this.direction == "DOWN") this.direction = "DOWN";
-        break;
-      case "d":
-        break;
-
-      default:
-        console.error("paramaters passed in turn function are wrong");
-        break;
-    }
+  /* array that includes four directions in linear plane
+    if you want go to rotate left than go to next direction(moveLeft)
+    if you want go rotate right than go to previous direction(moveRight)
+  */
+  #directions = ["N", "E", "S", "W"];
+  moveLeft() {
+    let curr = 0;
+    for (let i = 0; i < 4; i++)
+      if (this.#directions[i] === this.direction) curr = i;
+    this.direction = this.#directions[(curr + 3) % 4];
   }
+  moveRight() {
+    let curr = 0;
+    for (let i = 0; i < 4; i++)
+      if (this.#directions[i] === this.direction) curr = i;
+    this.direction = this.#directions[(curr + 1) % 4];
+  }
+
+  turn(command) {}
 }
+
+const c = new Chandrayaan();
+c.processCommands(["f", "r", "u", "b", "l"]);
+console.log(c);

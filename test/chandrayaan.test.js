@@ -4,6 +4,25 @@ test("initial test", () => {
   expect(1).toBe(1);
 });
 
+describe("Initialization", () => {
+  let spaceship;
+
+  beforeEach(() => {
+    spaceship = new Chandrayaan();
+  });
+
+  it("should initialize with default values", () => {
+    expect(spaceship.getCoordinates()).toEqual([0, 0, 0]);
+    expect(spaceship.direction).toBe("N");
+  });
+
+  it("should initialize with custom values", () => {
+    const customSpaceship = new Chandrayaan(2, -1, 3, "E");
+    expect(customSpaceship.getCoordinates()).toEqual([2, -1, 3]);
+    expect(customSpaceship.direction).toBe("E");
+  });
+});
+
 describe("Tests for move operations", () => {
   let spaceship;
 
