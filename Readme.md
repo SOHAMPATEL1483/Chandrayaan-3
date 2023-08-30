@@ -17,10 +17,19 @@ test/chandrayaan.test.js : contains testcases written by using jest
 
 ## Installation
 
-```
+```bash
 git clone https://github.com/SOHAMPATEL1483/Chandrayaan-3.git
 npm install
 npm run test
+```
+
+## Usage
+
+```js
+const spaceship = new Chandrayaan();
+spaceship.processCommands(["f", "r", "u", "b", "l"]);
+console.log(c); // Chandrayaan { x: 0, y: 1, z: -1, direction: 'N' }
+
 ```
 
 
