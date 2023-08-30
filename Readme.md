@@ -12,7 +12,7 @@
 
 chandrayaan.js : contains code for problem
 
-test/chandrayaan.test.js : contains testcases written by using jest
+test/chandrayaan.test.js : contains testcases written  using jest
 
 
 ## Installation
@@ -28,7 +28,7 @@ npm run test
 ```js
 const spaceship = new Chandrayaan();
 spaceship.processCommands(["f", "r", "u", "b", "l"]);
-console.log(c); // Chandrayaan { x: 0, y: 1, z: -1, direction: 'N' }
+console.log(spaceship); // Chandrayaan { x: 0, y: 1, z: -1, direction: 'N' }
 
 ```
 
