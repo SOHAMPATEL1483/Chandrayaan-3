@@ -24,6 +24,7 @@ export class Chandrayaan {
     return [this.x, this.y, this.z];
   }
 
+  // user will call this function and pass commands as an array
   processCommands(commands) {
     for (const command of commands) {
       if (command === "f" || command === "b") {
@@ -91,6 +92,7 @@ export class Chandrayaan {
     this.direction = this.#directions[(curr + 1) % 4];
   }
 
+  /* responsible for turning the chandrayaan */
   turn(command) {
     switch (command) {
       case "l":
