@@ -91,7 +91,33 @@ export class Chandrayaan {
     this.direction = this.#directions[(curr + 1) % 4];
   }
 
-  turn(command) {}
+  turn(command) {
+    switch (command) {
+      case "l":
+        if (this.#directions.includes(this.direction)) {
+          this.moveLeft();
+        } else if (this.direction == "UP") this.direction = "N";
+        else if (this.direction == "DOWN") this.direction = "S";
+        break;
+      case "r":
+        if (this.#directions.includes(this.direction)) {
+          this.moveRight();
+        } else if (this.direction == "UP") this.direction = "S";
+        else if (this.direction == "DOWN") this.direction = "N";
+        break;
+      case "u":
+        if (this.#directions.includes(this.direction)) this.direction = "UP";
+        else if (this.direction == "DOWN") this.direction = "N";
+        break;
+      case "d":
+        if (this.#directions.includes(this.direction)) this.direction = "DOWN";
+        else if (this.direction == "UP") this.direction = "N";
+        break;
+      default:
+        console.error("paramaters passed in turn function are wrong");
+        break;
+    }
+  }
 }
 
 const c = new Chandrayaan();

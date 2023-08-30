@@ -1,7 +1,10 @@
 import { Chandrayaan } from "../chandrayaan";
 
-test("initial test", () => {
-  expect(1).toBe(1);
+test("sample test given in assessement", () => {
+  const spaceship = new Chandrayaan();
+  spaceship.processCommands(["f", "r", "u", "b", "l"]);
+  expect(spaceship.getCoordinates()).toEqual([0, 1, -1]);
+  expect(spaceship.direction).toEqual("N");
 });
 
 describe("Initialization", () => {
