@@ -1,13 +1,12 @@
 # Chandrayaan-3
 
----
 
 ## Created using:
 
 - JavaScript
 - Jest
 
----
+
 
 ## File structure:
 
@@ -15,7 +14,6 @@ chandrayaan.js : contains code for problem
 
 test/chandrayaan.test.js : contains testcases written by using jest
 
----
 
 ## Installation
 
@@ -25,7 +23,7 @@ npm install
 npm run test
 ```
 
----
+
 
 ## images
 
